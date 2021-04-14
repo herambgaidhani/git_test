@@ -1,0 +1,246 @@
+(base) krushna@Krisi:~$ cd git_test/
+(base) krushna@Krisi:~/git_test$ git init
+Reinitialized existing Git repository in /home/krushna/git_test/.git/
+(base) krushna@Krisi:~/git_test$ ls -lah
+total 12K
+drwxrwxr-x  3 krushna krushna 4.0K Apr 14 15:29 .
+drwxr-xr-x 41 krushna krushna 4.0K Apr 14 15:30 ..
+drwxrwxr-x  7 krushna krushna 4.0K Apr 14 15:34 .git
+(base) krushna@Krisi:~/git_test$ nano .gitignore
+(base) krushna@Krisi:~/git_test$ ls -lah
+total 16K
+drwxrwxr-x  3 krushna krushna 4.0K Apr 14 15:37 .
+drwxr-xr-x 41 krushna krushna 4.0K Apr 14 15:30 ..
+drwxrwxr-x  7 krushna krushna 4.0K Apr 14 15:34 .git
+-rw-rw-r--  1 krushna krushna    8 Apr 14 15:37 .gitignore
+(base) krushna@Krisi:~/git_test$ cat .gitignore 
+
+
+*.csv
+(base) krushna@Krisi:~/git_test$ git config --global user.email "purnatpurn@gmail.com"
+(base) krushna@Krisi:~/git_test$ git init
+Reinitialized existing Git repository in /home/krushna/git_test/.git/
+(base) krushna@Krisi:~/git_test$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+(base) krushna@Krisi:~/git_test$ 
+(base) krushna@Krisi:~/git_test$ 
+
+
+(base) krushna@Krisi:~/git_test$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+(base) krushna@Krisi:~/git_test$ git add.gitignore
+git: 'add.gitignore' is not a git command. See 'git --help'.
+(base) krushna@Krisi:~/git_test$ git add .gitignore
+(base) krushna@Krisi:~/git_test$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   .gitignore
+
+(base) krushna@Krisi:~/git_test$ git commit -m "adding a gitignore file"
+[master (root-commit) c87d453] adding a gitignore file
+ 1 file changed, 3 insertions(+)
+ create mode 100644 .gitignore
+(base) krushna@Krisi:~/git_test$ ls -lah
+total 16K
+drwxrwxr-x  3 krushna krushna 4.0K Apr 14 15:37 .
+drwxr-xr-x 41 krushna krushna 4.0K Apr 14 15:39 ..
+drwxrwxr-x  8 krushna krushna 4.0K Apr 14 15:42 .git
+-rw-rw-r--  1 krushna krushna    8 Apr 14 15:37 .gitignore
+(base) krushna@Krisi:~/git_test$ 
+(base) krushna@Krisi:~/git_test$ git remote add origin https://github.com/herambgaidhani/git_test.git
+(base) krushna@Krisi:~/git_test$ 
+
+(base) krushna@Krisi:~/git_test$ git status
+On branch master
+nothing to commit, working tree clean
+(base) krushna@Krisi:~/git_test$ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+(base) krushna@Krisi:~/git_test$ git push origin master
+Username for 'https://github.com': herambgaidhani
+Password for 'https://herambgaidhani@github.com': 
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 230 bytes | 230.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/herambgaidhani/git_test.git
+ * [new branch]      master -> master
+(base) krushna@Krisi:~/git_test$ git push origin master
+Username for 'https://github.com': ^C
+(base) krushna@Krisi:~/git_test$ git push --set-upstream origin master
+Username for 'https://github.com': herambgaidhani	
+Password for 'https://herambgaidhani@github.com': 
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+Everything up-to-date
+(base) krushna@Krisi:~/git_test$ git push origin master
+Username for 'https://github.com': herambgaidhani
+Password for 'https://herambgaidhani@github.com': 
+Everything up-to-date
+(base) krushna@Krisi:~/git_test$ nano test.py
+(base) krushna@Krisi:~/git_test$ nano test.py
+(base) krushna@Krisi:~/git_test$ python test.py
+Traceback (most recent call last):
+  File "test.py", line 3, in <module>
+    df =pd.read_csv("train.csv",nrows=100)
+  File "/home/krushna/miniconda3/lib/python3.8/site-packages/pandas/io/parsers.py", line 610, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/krushna/miniconda3/lib/python3.8/site-packages/pandas/io/parsers.py", line 462, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/krushna/miniconda3/lib/python3.8/site-packages/pandas/io/parsers.py", line 819, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/home/krushna/miniconda3/lib/python3.8/site-packages/pandas/io/parsers.py", line 1050, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/home/krushna/miniconda3/lib/python3.8/site-packages/pandas/io/parsers.py", line 1867, in __init__
+    self._open_handles(src, kwds)
+  File "/home/krushna/miniconda3/lib/python3.8/site-packages/pandas/io/parsers.py", line 1362, in _open_handles
+    self.handles = get_handle(
+  File "/home/krushna/miniconda3/lib/python3.8/site-packages/pandas/io/common.py", line 642, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'train.csv'
+(base) krushna@Krisi:~/git_test$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	test.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+(base) krushna@Krisi:~/git_test$ 
+(base) krushna@Krisi:~/git_test$ git add .
+(base) krushna@Krisi:~/git_test$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   test.py
+
+(base) krushna@Krisi:~/git_test$ git commit -m "add new test.py"
+[master 0e5507f] add new test.py
+ 1 file changed, 5 insertions(+)
+ create mode 100644 test.py
+(base) krushna@Krisi:~/git_test$ git push
+Username for 'https://github.com': herambgaidhani
+Password for 'https://herambgaidhani@github.com': 
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 351 bytes | 351.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/herambgaidhani/git_test.git
+   c87d453..0e5507f  master -> master
+(base) krushna@Krisi:~/git_test$ git remote add origin https://github.com/herambgaidhani/git_test.git
+fatal: remote origin already exists.
+(base) krushna@Krisi:~/git_test$ git branch
+* master
+(base) krushna@Krisi:~/git_test$ git checkout -b
+error: switch `b' requires a value
+(base) krushna@Krisi:~/git_test$ git branch update_test
+(base) krushna@Krisi:~/git_test$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+(base) krushna@Krisi:~/git_test$ git branch
+* master
+  update_test
+(base) krushna@Krisi:~/git_test$ git checkout update_test
+Switched to branch 'update_test'
+(base) krushna@Krisi:~/git_test$ 
+(base) krushna@Krisi:~/git_test$ zsh
+(base)  krushna@Krisi  ~/git_test   update_test  git log
+
+[1]  + 19504 suspended  git log
+(base)  ✘ ⚙ krushna@Krisi  ~/git_test   update_test  git log --pretty=online
+fatal: invalid --pretty format: online
+(base)  ✘ ⚙ krushna@Krisi  ~/git_test   update_test  git log --pretty=oneline
+
+[2]  + 19567 suspended  git log --pretty=oneline
+(base)  ✘ ⚙ krushna@Krisi  ~/git_test   update_test  ls
+test.py
+(base)  ⚙ krushna@Krisi  ~/git_test   update_test  ls -lah
+total 20K
+drwxrwxr-x  3 krushna krushna 4.0K Apr 14 15:55 .
+drwxr-xr-x 41 krushna krushna 4.0K Apr 14 16:08 ..
+drwxrwxr-x  8 krushna krushna 4.0K Apr 14 16:03 .git
+-rw-rw-r--  1 krushna krushna    8 Apr 14 15:37 .gitignore
+-rw-rw-r--  1 krushna krushna   72 Apr 14 15:55 test.py
+(base)  ⚙ krushna@Krisi  ~/git_test   update_test  git status    
+On branch update_test
+nothing to commit, working tree clean
+(base)  ⚙ krushna@Krisi  ~/git_test   update_test  git branch
+
+[3]  + 19688 suspended  git branch
+(base)  ✘ ⚙ krushna@Krisi  ~/git_test   update_test  git commit
+On branch update_test
+nothing to commit, working tree clean
+(base)  ✘ ⚙ krushna@Krisi  ~/git_test   update_test  git push
+fatal: The current branch update_test has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin update_test
+
+(base)  ✘ ⚙ krushna@Krisi  ~/git_test   update_test   git push --set-upstream origin update_test
+Username for 'https://github.com': herambgaidhani
+Password for 'https://herambgaidhani@github.com': 
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'update_test' on GitHub by visiting:
+remote:      https://github.com/herambgaidhani/git_test/pull/new/update_test
+remote: 
+To https://github.com/herambgaidhani/git_test.git
+ * [new branch]      update_test -> update_test
+Branch 'update_test' set up to track remote branch 'update_test' from 'origin'.
+(base)  ⚙ krushna@Krisi  ~/git_test   update_test  git status
+On branch update_test
+Your branch is up to date with 'origin/update_test'.
+
+nothing to commit, working tree clean
+(base)  ⚙ krushna@Krisi  ~/git_test   update_test  git branch
+
+[4]  + 19835 suspended  git branch
+(base)  ✘ ⚙ krushna@Krisi  ~/git_test   update_test  git log --pretty=oneline
+
+[5]  + 19863 suspended  git log --pretty=oneline
+(base)  ✘ ⚙ krushna@Krisi  ~/git_test   update_test  git pull
+warning: Pulling without specifying how to reconcile divergent branches is
+discouraged. You can squelch this message by running one of the following
+commands sometime before your next pull:
+
+  git config pull.rebase false  # merge (the default strategy)
+  git config pull.rebase true   # rebase
+  git config pull.ff only       # fast-forward only
+
+You can replace "git config" with "git config --global" to set a default
+preference for all repositories. You can also pass --rebase, --no-rebase,
+or --ff-only on the command line to override the configured default per
+invocation.
+
+Already up to date.
+(base)  ⚙ krushna@Krisi  ~/git_test   update_test  git fetch
+(base)  ⚙ krushna@Krisi  ~/git_test   update_test  git checkout
